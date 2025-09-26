@@ -1,0 +1,267 @@
+/* ==========================
+   🎨 VARIABLES EN ESPAÑOL
+   ========================== */
+:root {
+  --color-primario: #5e60ce;
+  --color-secundario: #48bfe3;
+  --color-fondo: #0f1223;
+  --color-fondo-claro: #f6f7fb;
+  --color-texto: #0e0f14;
+  --color-texto-invertido: #ffffff;
+  --radio-borde: 16px;
+  --sombra-suave: 0 10px 30px rgba(0,0,0,0.18);
+  --vidrio: rgba(255,255,255,0.08);
+  --vel-rapida: 160ms;
+  --vel-media: 320ms;
+  --vel-lenta: 600ms;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-fondo: #0b0e1b;
+    --color-texto: #e8eaf6;
+  }
+}
+
+/* ==========================
+   🧱 RESETEO Y BASE
+   ========================== */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--color-texto);
+  background: radial-gradient(1200px 800px at 10% 10%, #1b1e36 0%, var(--color-fondo) 50%) fixed;
+  min-height: 100dvh;
+  line-height: 1.6;
+  background-image:
+    radial-gradient(800px 500px at 85% 15%, rgba(94,96,206,0.25), transparent 60%),
+    radial-gradient(600px 400px at 20% 80%, rgba(72,191,227,0.18), transparent 60%),
+    radial-gradient(900px 600px at 70% 70%, rgba(255,255,255,0.06), transparent 60%);
+  background-blend-mode: screen, screen, normal;
+}
+
+body.tema-claro {
+  background: var(--color-fondo-claro);
+  background-image: none;
+}
+
+a { color: var(--color-primario); text-decoration: none; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--color-primario);
+  outline-offset: 2px;
+}
+
+/* ==========================
+   👆 ENLACE SALTAR
+   ========================== */
+.enlace-salto {
+  position: absolute;
+  left: -9999px;
+  top: 1rem;
+  padding: .5rem .75rem;
+  background: var(--color-primario);
+  color: var(--color-texto-invertido);
+  border-radius: 8px;
+  z-index: 1000;
+}
+.enlace-salto:focus { left: 1rem; }
+
+/* ==========================
+   🔝 CABECERA
+   ========================== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  backdrop-filter: blur(10px);
+  background: linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.00));
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+body.tema-claro header {
+  background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.3));
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.barra {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: .75rem 1rem;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: .5rem;
+  align-items: center;
+}
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  font-weight: 700;
+  letter-spacing: .3px;
+}
+.logo svg { width: 28px; height: 28px; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.25)); }
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0; padding: 0;
+  gap: 1rem;
+}
+nav a {
+  padding: .5rem .75rem;
+  border-radius: 999px;
+  transition: background var(--vel-rapida), color var(--vel-rapida);
+}
+nav a:hover {
+  background: color-mix(in oklab, var(--color-primario) 20%, transparent);
+  color: var(--color-texto-invertido);
+}
+.acciones { display: flex; gap: .5rem; align-items: center; }
+.boton {
+  border: 1px solid rgba(255,255,255,0.2);
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  color: var(--color-texto-invertido);
+  padding: .55rem .9rem;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  box-shadow: var(--sombra-suave);
+  cursor: pointer;
+  transition: transform var(--vel-rapida), background var(--vel-rapida), border-color var(--vel-rapida);
+}
+body.tema-claro .boton {
+  color: var(--color-texto);
+  border-color: rgba(0,0,0,0.12);
+  background: white;
+}
+.boton:hover { transform: translateY(-1px); }
+.boton-primario {
+  background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
+  color: #fff;
+  border: none;
+}
+.entrada-color {
+  width: 36px; height: 36px; border-radius: 8px; border: none;
+  overflow: hidden; padding: 0; cursor: pointer; box-shadow: var(--sombra-suave);
+}
+
+/* ==========================
+   🏠 PORTADA
+   ========================== */
+.portada {
+  max-width: 1100px;
+  margin: 2rem auto 0;
+  padding: 2rem 1rem 3rem;
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 2rem;
+  align-items: center;
+}
+.tarjeta-vidrio {
+  background: var(--vidrio);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra-suave);
+  padding: 1.25rem;
+}
+body.tema-claro .tarjeta-vidrio {
+  background: #ffffff;
+  border-color: rgba(0,0,0,0.06);
+}
+.titulo {
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  margin: 0 0 .6rem 0;
+  color: color-mix(in oklab, var(--color-texto) 90%, var(--color-primario) 10%);
+}
+.linea-color {
+  width: 120px; height: 6px; border-radius: 999px;
+  background: linear-gradient(90deg, var(--color-primario), var(--color-secundario));
+  margin: .5rem 0 1.25rem 0;
+}
+.texto-suave { opacity: 0.85; }
+
+.panel-dibujo {
+  position: relative;
+  height: 360px;
+  border-radius: var(--radio-borde);
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(600px 280px at 70% 10%, color-mix(in oklab, var(--color-secundario) 35%, transparent), transparent 60%),
+    radial-gradient(700px 300px at 15% 90%, color-mix(in oklab, var(--color-primario) 35%, transparent), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0));
+}
+.burbuja {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(10px) saturate(1.2);
+  mix-blend-mode: screen;
+  opacity: .75;
+  animation: flotar var(--duracion, 12s) ease-in-out infinite alternate;
+}
+.burbuja:nth-child(1){ --duracion: 11s; width: 220px; height: 220px; left: 6%; top: 10%; background: #7fd1f3; }
+.burbuja:nth-child(2){ --duracion: 13s; width: 280px; height: 280px; right: 8%; top: 18%; background: #b28cff; }
+.burbuja:nth-child(3){ --duracion: 16s; width: 180px; height: 180px; left: 30%; bottom: 8%; background: #ffb86b; }
+@keyframes flotar { to { transform: translateY(-28px) translateX(18px) scale(1.06); } }
+
+/* ==========================
+   🧩 SECCIONES
+   ========================== */
+section { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 3rem; }
+.grid { display: grid; gap: 1rem; }
+.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+.tarjeta {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra-suave);
+  padding: 1rem;
+  transition: transform var(--vel-media), box-shadow var(--vel-media);
+}
+body.tema-claro .tarjeta {
+  background: #ffffff;
+  border-color: rgba(0,0,0,0.08);
+}
+.tarjeta:hover { transform: translateY(-4px); box-shadow: 0 18px 36px rgba(0,0,0,0.22); }
+
+.revelable { opacity: 0; transform: translateY(14px); transition: opacity var(--vel-lenta) ease, transform var(--vel-lenta) ease; }
+.revelable.visible { opacity: 1; transform: translateY(0); }
+
+/* ==========================
+   📮 FORMULARIO
+   ========================== */
+.formulario { display: grid; gap: .75rem; }
+.campo { display: grid; gap: .35rem; }
+.input, .textarea {
+  padding: .75rem .9rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.06);
+  color: var(--color-texto-invertido);
+}
+body.tema-claro .input, body.tema-claro .textarea {
+  background: #ffffff;
+  border-color: rgba(0,0,0,0.12);
+  color: var(--color-texto);
+}
+.textarea { min-height: 120px; resize: vertical; }
+
+/* ==========================
+   📱 RESPONSIVE
+   ========================== */
+@media (max-width: 900px) {
+  .portada { grid-template-columns: 1fr; }
+  .grid-3, .grid-2 { grid-template-columns: 1fr; }
+  .barra { grid-template-columns: 1fr auto; }
+}
+
+/* ==========================
+   🦶 PIE
+   ========================== */
+footer {
+  border-top: 1px dashed rgba(255,255,255,0.2);
+  padding: 2rem 1rem;
+  text-align: center;
+  color: color-mix(in oklab, var(--color-texto) 80%, var(--color-primario) 20%);
+}
+body.tema-claro footer { border-top-color: rgba(0,0,0,0.12); }

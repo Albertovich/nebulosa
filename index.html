@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nebulosa — Sitio Único</title>
+  <meta name="description" content="Sitio web moderno y único creado con HTML, CSS y JS. Modo oscuro, animaciones y personalización.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="#contenido" class="enlace-salto">Saltar al contenido</a>
+
+  <header>
+    <div class="barra">
+      <div class="logo" aria-label="Nebulosa - logo">
+        <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0" stop-color="#5e60ce"/>
+              <stop offset="1" stop-color="#48bfe3"/>
+            </linearGradient>
+          </defs>
+          <circle cx="12" cy="52" r="4" fill="url(#g)"/>
+          <circle cx="26" cy="18" r="3" fill="url(#g)"/>
+          <circle cx="50" cy="30" r="5" fill="url(#g)"/>
+          <path d="M12 52 L26 18 L50 30 Z" stroke="url(#g)" stroke-width="2" fill="none" />
+        </svg>
+        <span>Nebulosa</span>
+      </div>
+
+      <nav aria-label="Principal">
+        <ul>
+          <li><a href="#sobre">Sobre mí</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="acciones">
+        <input class="entrada-color" id="entradaColor" type="color" value="#5e60ce" aria-label="Seleccionar color del tema">
+        <button id="botonModo" class="boton" type="button" aria-label="Cambiar tema (oscuro / claro)">🌓 Tema</button>
+        <a class="boton boton-primario" href="#contacto">Contactar</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="portada">
+      <div class="tarjeta-vidrio revelable">
+        <h1 class="titulo">Diseño que respira <span style="color: var(--color-primario)">personalidad</span>.</h1>
+        <div class="linea-color" aria-hidden="true"></div>
+        <p class="texto-suave" id="fraseDinamica" aria-live="polite"></p>
+        <p class="texto-suave">
+          Este sitio es un lienzo: cambia el color del tema, alterna el modo oscuro y explora animaciones suaves
+          hechas a mano. Todo el código está comentado como si fuera un alumno explicando su tarea 👨🏻‍🎓.
+        </p>
+        <div style="display:flex; gap:.6rem; margin-top:1rem;">
+          <a class="boton" href="#proyectos">Ver proyectos</a>
+          <a class="boton boton-primario" href="#contacto">Hablemos</a>
+        </div>
+      </div>
+
+      <div class="tarjeta-vidrio panel-dibujo revelable" aria-hidden="true">
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <div class="grid grid-2">
+        <article class="tarjeta revelable">
+          <h2>Sobre mí</h2>
+          <p>
+            Soy curiosidad en modo humano. Me gusta crear interfaces que conecten
+            con las personas a través de detalles: microinteracciones, color, ritmo tipográfico
+            y accesibilidad. Creo que la tecnología debe sentirse cercana.
+          </p>
+          <ul>
+            <li>♿ Enfoque accesible por defecto</li>
+            <li>⚡ Rendimiento sin dependencias externas</li>
+            <li>🎯 Diseño primero en contenido</li>
+          </ul>
+        </article>
+
+        <aside class="tarjeta revelable" aria-label="Panel de datos curiosos">
+          <h3>Mini datos</h3>
+          <p><strong>Estado de ánimo:</strong> afinando píxeles</p>
+          <p><strong>Color del día:</strong> <span id="colorDelDia">#5e60ce</span></p>
+          <p><strong>Visitas locales:</strong> <span id="contadorVisitas">1</span></p>
+          <p class="texto-suave">Estos datos se guardan solo en tu navegador (localStorage).</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="proyectos">
+      <h2 class="revelable">Proyectos destacados</h2>
+      <div class="grid grid-3">
+        <article class="tarjeta revelable">
+          <h3>Constelaciones UI</h3>
+          <p>
+            Un sistema de diseño inspirado en el cielo nocturno. Componentes discretos que
+            se conectan para resolver problemas reales.
+          </p>
+          <a href="#contacto">Solicitar demo →</a>
+        </article>
+        <article class="tarjeta revelable">
+          <h3>Microinteracciones</h3>
+          <p>
+            Animaciones que comunican estado y reducen fricción. La forma es función cuando
+            la transición explica el cambio.
+          </p>
+          <a href="#contacto">Ver detalles →</a>
+        </article>
+        <article class="tarjeta revelable">
+          <h3>Accesibilidad viva</h3>
+          <p>
+            Patrón que permite medir y mejorar contrastes, foco visible y navegación por teclado
+            sin sacrificar identidad visual.
+          </p>
+          <a href="#contacto">Explorar →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="grid grid-2">
+        <div class="tarjeta revelable">
+          <h2>Contacto</h2>
+          <p class="texto-suave">¿Tienes una idea? Escribe y te respondo con una propuesta.</p>
+          <form class="formulario" id="formularioContacto" autocomplete="on" novalidate>
+            <div class="campo">
+              <label for="nombre">Nombre</label>
+              <input class="input" id="nombre" name="nombre" type="text" placeholder="Tu nombre" required>
+            </div>
+            <div class="campo">
+              <label for="correo">Correo</label>
+              <input class="input" id="correo" name="correo" type="email" placeholder="tunombre@dominio.com" required>
+            </div>
+            <div class="campo">
+              <label for="mensaje">Mensaje</label>
+              <textarea class="textarea" id="mensaje" name="mensaje" placeholder="Cuéntame en una o dos líneas…" required></textarea>
+            </div>
+            <div style="display:flex; gap:.6rem; align-items:center;">
+              <button class="boton boton-primario" type="submit">Enviar</button>
+              <span id="estadoFormulario" role="status" aria-live="polite"></span>
+            </div>
+          </form>
+        </div>
+
+        <div class="tarjeta revelable">
+          <h2>Preguntas rápidas</h2>
+          <details>
+            <summary>¿Puedo cambiar el color del tema?</summary>
+            <p>Sí, usa el selector de color en la esquina superior derecha. Se guarda automáticamente.</p>
+          </details>
+          <details>
+            <summary>¿Tiene modo oscuro?</summary>
+            <p>Sí, y recuerda tu preferencia entre sesiones.</p>
+          </details>
+          <details>
+            <summary>¿Es responsive?</summary>
+            <p>Funciona bien en móvil, tablet y escritorio sin frameworks externos.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Hecho con 💙 y <strong>variables en español</strong>. Código original, comentado como tarea de alumno.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
